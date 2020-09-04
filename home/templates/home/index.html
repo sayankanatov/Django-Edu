@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Our E-shop</title>
+    </head>
+    <body>
+        <!-- Main Menu -->
+        <table>
+            <tr>
+                <td><a href="{% url 'home:index' %}">Home</a></td>
+                <td><a href="{% url 'item:index' %}">Items</a></td>
+            </tr>
+        </table>
+        <!-- End Main Menu -->
+
+        <!-- Main Title-->
+        <h1>Our E-shop</h1>
+        <!-- End Main Title-->
+        <p>Астанинское время: {{current_time}}</p>
+
+        <!-- Content-->
+        <div id="contents">
+            <p>Welcome!!!</p>
+        </div>
+        <!-- End Content-->
+
+    </body>
+</html>

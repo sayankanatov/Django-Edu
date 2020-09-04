@@ -1,0 +1,19 @@
+{% extends 'generic.html' %}
+{% block title %} Group List {% endblock %}
+{% block header %} Group List {% endblock %}
+{% block content %}
+<table border="1">
+    <tr>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Perishable</th>
+    </tr>
+    {% for group in groups %}
+    <tr>
+        <td>{{group.code}}</td>
+        <td>{{group.title}}</td>
+        <td>{{group.perishable}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

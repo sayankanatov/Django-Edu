@@ -1,0 +1,23 @@
+{% extends 'generic.html' %}
+{% block title %} Item: {{item.title}} {% endblock %}
+{% block header %} Item: {{item.title}} {% endblock %}
+{% block content %}
+<table border="1">
+    <tr>
+        <th>Article</th>
+        <th>Title</th>
+        <th>Count</th>
+        <th>Description</th>
+        <th>Group</th>
+        <th>Tags</th>
+    </tr>
+    <tr>
+        <td>{{item.article}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.group.title}}</td>
+        <td>{{tags}}</td>
+    </tr>
+</table>
+{% endblock %}

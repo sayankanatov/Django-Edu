@@ -1,0 +1,40 @@
+{% extends 'generic.html' %}
+{% block title %} Item List {% endblock %}
+{% block header %} Item List {% endblock %}
+{% block content %}
+<table border="1">
+    <tr>
+        <th>Article</th>
+        <th>Title</th>
+        <th>Count</th>
+        <th>Tags</th>
+        <th>Tag actions</th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for item in items %}
+    <tr>
+        <td>{{item.article}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.quantity}}</td>
+        <td>
+            <ul>
+                {% for tag in item.tag.all|slice:":5" %}
+                <li>{{ tag.title }}</li>
+                {% endfor %}
+            </ul>
+
+        </td>
+        <td><a href="{% url 'item:tags' item.pk %}">Edit tags</a></td>
+        <td><a href="{% url 'item:show_item' item.pk %}">show</a></td>
+        <td><a href="{% url 'item:edit_item' item.pk %}">edit</a></td>
+        <td><a href="{% url 'item:delete_item' item.pk %}">remove</a></td>
+        <td><a href="{% url 'item:add_image' item.pk %}">add image</a></td>
+        <td><img src="{% url 'item:image' item.pk %}" width="50" height="50" alt="Image"></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><a href="{% url 'item:create_item' %}">Add item</a></p>
+{% endblock %}

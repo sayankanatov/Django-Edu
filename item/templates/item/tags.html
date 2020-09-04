@@ -1,0 +1,29 @@
+{% extends 'generic.html' %}
+{% load static %}
+{% block title %} Tags of {{item.title}} {% endblock %}
+{% block header %} Tags of {{item.title}} {% endblock %}
+{% block content %}
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th></th>
+    </tr>
+    {% for tag in item.tag.all %}
+    <tr>
+        <td>{{tag.pk}}</td>
+        <td>{{tag.title}}</td>
+        <td>
+            <a href="{% url 'item:drop_tag' item.pk tag.pk %}">
+                <img src="{% static 'item/close.png' %}" alt="close" width="10" height="10">
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit">
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'generic.html' %}
+{% block title %} Edit Item: {{item.title}} {% endblock %}
+{% block header %} Edit Item: {{item.title}} {% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <table border="1">
+<!-- {{ form }} -->
+        {% if form.non_field_errors %}
+        <tr><td>{{ form.non_field_errors }}</td></tr>
+        {% endif %}
+        <tr>
+            <td>Title</td>
+            <td>{{ form.title }}</td>
+            <td>{{ form.title.errors }}</td>
+        </tr>
+        <tr>
+            <td>Article</td>
+            <td>{{ form.article }}</td>
+            <td>{{ form.article.errors }}</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td>{{ form.quantity }}</td>
+            <td>{{ form.quantity.errors }}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>{{ form.description }}</td>
+            <td>{{ form.description.errors }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Update" />
+                <input type="reset" value="Reset" />
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
